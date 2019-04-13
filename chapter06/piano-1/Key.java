@@ -20,11 +20,12 @@ public class Key extends Actor
         {
             //key is down
             setImage("white-key-down.png");
+            play();
         }
         else
         {
             //key is up
-            setImage("white-key.png")
+            setImage("white-key.png");
         }
         
     }
@@ -32,5 +33,9 @@ public class Key extends Actor
     /**
      * Play the note of this key.
      */
+    public void play()
+    {
+        Greenfoot.playSound("3a.wav");
+    }
 }
 
