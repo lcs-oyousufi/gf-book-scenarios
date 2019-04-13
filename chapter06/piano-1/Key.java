@@ -3,10 +3,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 public class Key extends Actor
 {
     /**
+     * Instance variavles 
+     * These can be used anywhere in the class below
+     */
+    
+    //will keep track of whether a key was just pressed
+    private boolean keyAlreadyDown;
+    
+    
+    /**
      * Create a new key.
      */
     public Key()
     {
+        //no key has been pressed
+        keyAlreadyDown = false;
     }
 
     /**
@@ -16,16 +27,21 @@ public class Key extends Actor
     {
         
         //animate the piano key being pressed 
-        if (Greenfoot.isKeyDown("g") )
+        //Condition 1 - is the "g" key being pressed 
+        //Condition 2 - was the "g" key already down
+        if (Greenfoot.isKeyDown("g") && keyAlreadyDown == false )
         {
             //key is down
             setImage("white-key-down.png");
             play();
+            keyAlreadyDown = true;
         }
-        else
+        
+        if (keyAlreadyDown == true && Greenfoot.isKeyDown("g") == false )
         {
             //key is up
             setImage("white-key.png");
+            keyAlreadyDown = false;
         }
         
     }
