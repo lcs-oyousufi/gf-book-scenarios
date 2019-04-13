@@ -28,8 +28,8 @@ public class Key extends Actor
         
         //animate the piano key being pressed 
         //Condition 1 - is the "g" key being pressed 
-        //Condition 2 - was the "g" key already down
-        if (Greenfoot.isKeyDown("g") && keyAlreadyDown == false )
+        //Condition 2 - the key was NOT already down
+        if (Greenfoot.isKeyDown("g") && !keyAlreadyDown)
         {
             //key is down
             setImage("white-key-down.png");
