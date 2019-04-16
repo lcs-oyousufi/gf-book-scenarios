@@ -19,6 +19,13 @@ public class Piano extends World
             "Joven", "Joe", "Gordon", "Jieun", "Selena", "Jason", "Sam", "Jeff"
         };
 
+    //Create two arrays
+    //First array tracks the keyboard keys that we will use for white piano keys
+    String[] whiteKeys = {"a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\" };
+    //Second array tracks the sounds files for each note
+    String[] whiteNotes = {"3c", "3d", "3e", "3f", "3g", "3a", "3a", "3b", "4c", "4d", "4e", 
+            "4f","4g"};
+
     /**
      * Make the piano.
      */
@@ -36,21 +43,23 @@ public class Piano extends World
      */
     public void act()
     {
-       //say "hello" to a different person each second 
-       if ( (frames % 60 ==0) && (frames /60 <16) )
+        //say "hello" to a different person each second 
+        //array
+        int position = frames / 60;
+        if ( (frames % 60 ==0) && (frames /60 <16) )
         {
             //only show a message when we are in the bounds of the array
-            //showText("Array index is" + frames / 60, 400, 250);
+            showText("Array index is" + position / 60, 400, 250);
 
             //only say hello when we are in the bounds of the array 
             //Say hello to everyone in the class!
             //showText("Hello" + peopleInClass[frames / 60], 400, 170);
         }
 
-       //Track frames
-       frames += 1;
+        //Track frames
+        frames += 1;
 
-       //show the frames
-       showText("" + frames, 100, 100);
+        //show the frames
+        showText("" + frames, 100, 100);
     }
 }
